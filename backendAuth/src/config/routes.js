@@ -11,8 +11,9 @@ module.exports = function(server) {
     BillingCycle.register(router, '/billingCycles')
 
     const openApi = express.Router()
-server.use('/oapi', openApi)
-const AuthService = require('../api/user/AuthService')
+    server.use('/oapi', openApi)
+
+const AuthService = require('../api/user/authService')
 openApi.post('/login', AuthService.login)
 openApi.post('/signup', AuthService.signup)
 openApi.post('/validateToken', AuthService.validateToken)
